@@ -291,6 +291,13 @@ label input {
   margin-top: 18px;
 }
 
+.form-message {
+  min-height: 20px;
+  margin-top: 14px;
+  color: var(--danger);
+  font-size: 14px;
+}
+
 @media (max-width: 760px) {
   .app-header {
     align-items: stretch;

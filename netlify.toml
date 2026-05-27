@@ -17,6 +17,11 @@
   status = 200
 
 [[redirects]]
+  from = "/api/project"
+  to = "/.netlify/functions/project-by-id"
+  status = 200
+
+[[redirects]]
   from = "/api/export.csv"
   to = "/.netlify/functions/export-csv"
   status = 200

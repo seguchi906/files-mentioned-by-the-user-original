@@ -3,59 +3,59 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>業務データ管理</title>
+    <title>&#26989;&#21209;&#12487;&#12540;&#12479;&#31649;&#29702;</title>
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <header class="app-header">
       <div>
-        <h1>業務データ管理</h1>
-        <p>Neon DBに保存された業務情報を編集します。</p>
+        <h1>&#26989;&#21209;&#12487;&#12540;&#12479;&#31649;&#29702;</h1>
+        <p>Neon DB&#12395;&#20445;&#23384;&#12373;&#12428;&#12383;&#26989;&#21209;&#24773;&#22577;&#12434;&#32232;&#38598;&#12375;&#12414;&#12377;&#12290;</p>
       </div>
       <div class="header-actions">
-        <label class="file-button" title="CSVを初回取り込み">
+        <label class="file-button" title="CSV&#12434;&#21021;&#22238;&#21462;&#36796;">
           <input id="csvInput" type="file" accept=".csv,text/csv">
-          CSV取込
+          CSV&#21462;&#36796;
         </label>
-        <a class="button secondary" href="/api/export.csv" download>CSV出力</a>
-        <button id="newButton" class="button primary" type="button">新規追加</button>
+        <a class="button secondary" href="/api/export.csv" download>CSV&#20986;&#21147;</a>
+        <button id="newButton" class="button primary" type="button">&#26032;&#35215;&#36861;&#21152;</button>
       </div>
     </header>
 
     <main>
-      <section class="toolbar" aria-label="検索と絞り込み">
-        <input id="searchInput" type="search" placeholder="業務番号・業務名・発注者・分類で検索">
-        <select id="yearFilter" aria-label="契約期">
-          <option value="">契約期すべて</option>
+      <section class="toolbar" aria-label="&#26908;&#32034;&#12392;&#3215;&#36796;">
+        <input id="searchInput" type="search" placeholder="&#26989;&#21209;&#30058;&#21495;&#12539;&#26989;&#21209;&#21517;&#12539;&#30330;&#27880;&#32773;&#12539;&#20998;&#39006;&#12391;&#26908;&#32034;">
+        <select id="yearFilter" aria-label="&#22865;&#32004;&#26399;">
+          <option value="">&#22865;&#32004;&#26399;&#12377;&#12409;&#12390;</option>
         </select>
-        <select id="fieldFilter" aria-label="分類">
-          <option value="">分類すべて</option>
+        <select id="fieldFilter" aria-label="&#20998;&#39006;">
+          <option value="">&#20998;&#39006;&#12377;&#12409;&#12390;</option>
         </select>
-        <select id="officeFilter" aria-label="発注者">
-          <option value="">発注者すべて</option>
+        <select id="officeFilter" aria-label="&#30330;&#27880;&#32773;">
+          <option value="">&#30330;&#27880;&#32773;&#12377;&#12409;&#12390;</option>
         </select>
       </section>
 
       <section class="status-row">
-        <span id="countLabel">0件</span>
+        <span id="countLabel">0&#20214;</span>
         <span id="message" role="status"></span>
       </section>
 
-      <section class="table-wrap" aria-label="業務一覧">
+      <section class="table-wrap" aria-label="&#26989;&#21209;&#19968;&#35239;">
         <table>
           <thead>
             <tr>
-              <th><button data-sort="number">業務番号</button></th>
-              <th><button data-sort="name">業務名</button></th>
-              <th><button data-sort="office">発注者</button></th>
-              <th><button data-sort="field">分類</button></th>
-              <th><button data-sort="contract_amount">契約金額</button></th>
-              <th><button data-sort="start_date">開始日</button></th>
-              <th><button data-sort="end_date">終了日</button></th>
-              <th><button data-sort="revised_end_date">変更後終了日</button></th>
-              <th><button data-sort="project_year">契約期</button></th>
-              <th><button data-sort="fiscal_year">決算期</button></th>
-              <th>操作</th>
+              <th><button data-sort="number">&#26989;&#21209;&#30058;&#21495;</button></th>
+              <th><button data-sort="name">&#26989;&#21209;&#21517;</button></th>
+              <th><button data-sort="office">&#30330;&#27880;&#32773;</button></th>
+              <th><button data-sort="field">&#20998;&#39006;</button></th>
+              <th><button data-sort="contract_amount">&#22865;&#32004;&#37329;&#38989;</button></th>
+              <th><button data-sort="start_date">&#38283;&#22987;&#26085;</button></th>
+              <th><button data-sort="end_date">&#32066;&#20102;&#26085;</button></th>
+              <th><button data-sort="revised_end_date">&#22793;&#26356;&#24460;&#32066;&#20102;&#26085;</button></th>
+              <th><button data-sort="project_year">&#22865;&#32004;&#26399;</button></th>
+              <th><button data-sort="fiscal_year">&#27770;&#31639;&#26399;</button></th>
+              <th>&#25805;&#20316;</th>
             </tr>
           </thead>
           <tbody id="projectRows"></tbody>
@@ -64,31 +64,32 @@
     </main>
 
     <dialog id="editorDialog">
-      <form id="projectForm" method="dialog">
+      <form id="projectForm">
         <div class="dialog-head">
-          <h2 id="dialogTitle">業務を編集</h2>
-          <button class="icon-button" value="cancel" type="button" id="closeDialog" aria-label="閉じる">×</button>
+          <h2 id="dialogTitle">&#26989;&#21209;&#12434;&#32232;&#38598;</h2>
+          <button class="icon-button" type="button" id="closeDialog" aria-label="&#38281;&#12376;&#12427;">x</button>
         </div>
         <div class="form-grid">
-          <label>年度<input name="fiscal_year" type="number" inputmode="numeric"></label>
-          <label>決算年度<input name="fiscal_year_true" type="number" inputmode="numeric"></label>
-          <label>業務番号<input name="number" required></label>
-          <label class="wide">業務名<input name="name" required></label>
-          <label>分類<input name="field"></label>
-          <label>詳細分類<input name="subfield"></label>
-          <label>分類番号<input name="field_number" type="number" inputmode="numeric"></label>
-          <label>発注者<input name="office"></label>
-          <label>開始日<input name="start_date" type="date"></label>
-          <label>終了日<input name="end_date" type="date"></label>
-          <label>変更後終了日<input name="revised_end_date" type="date"></label>
-          <label>決算終了日<input name="fisical_end_date" type="date"></label>
-          <label>契約金額<input name="contract_amount" type="number" inputmode="numeric" min="0" required></label>
+          <label>&#24180;&#24230;<input name="fiscal_year" type="number" inputmode="numeric"></label>
+          <label>&#27770;&#31639;&#24180;&#24230;<input name="fiscal_year_true" type="number" inputmode="numeric"></label>
+          <label>&#26989;&#21209;&#30058;&#21495;<input name="number" required></label>
+          <label class="wide">&#26989;&#21209;&#21517;<input name="name" required></label>
+          <label>&#20998;&#39006;<input name="field"></label>
+          <label>&#35443;&#32048;&#20998;&#39006;<input name="subfield"></label>
+          <label>&#20998;&#39006;&#30058;&#21495;<input name="field_number" type="number" inputmode="numeric"></label>
+          <label>&#30330;&#27880;&#32773;<input name="office"></label>
+          <label>&#38283;&#22987;&#26085;<input name="start_date" type="date"></label>
+          <label>&#32066;&#20102;&#26085;<input name="end_date" type="date"></label>
+          <label>&#22793;&#26356;&#24460;&#32066;&#20102;&#26085;<input name="revised_end_date" type="date"></label>
+          <label>&#27770;&#31639;&#32066;&#20102;&#26085;<input name="fisical_end_date" type="date"></label>
+          <label>&#22865;&#32004;&#37329;&#38989;<input name="contract_amount" type="number" inputmode="numeric" min="0" required></label>
         </div>
+        <p id="formMessage" class="form-message" role="alert"></p>
         <div class="dialog-actions">
-          <button id="deleteButton" class="button danger" type="button">削除</button>
+          <button id="deleteButton" class="button danger" type="button">&#21066;&#38500;</button>
           <span></span>
-          <button class="button secondary" type="button" id="cancelButton">キャンセル</button>
-          <button class="button primary" type="submit">保存</button>
+          <button class="button secondary" type="button" id="cancelButton">&#12461;&#12515;&#12531;&#12475;&#12523;</button>
+          <button id="saveButton" class="button primary" type="submit">&#20445;&#23384;</button>
         </div>
       </form>
     </dialog>
