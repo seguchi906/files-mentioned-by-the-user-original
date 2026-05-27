@@ -26,7 +26,7 @@
       <section class="toolbar" aria-label="&#26908;&#32034;&#12392;&#3215;&#36796;">
         <input id="searchInput" type="search" placeholder="&#26989;&#21209;&#30058;&#21495;&#12539;&#26989;&#21209;&#21517;&#12539;&#30330;&#27880;&#32773;&#12539;&#20998;&#39006;&#12391;&#26908;&#32034;">
         <select id="yearFilter" aria-label="&#22865;&#32004;&#26399;">
-          <option value="">&#22865;&#32004;&#26399;&#12377;&#12409;&#12390;</option>
+          <option value="">&#20840;&#26399;</option>
         </select>
         <select id="fieldFilter" aria-label="&#20998;&#39006;">
           <option value="">&#20998;&#39006;&#12377;&#12409;&#12390;</option>
@@ -70,10 +70,9 @@
           <button class="icon-button" type="button" id="closeDialog" aria-label="&#38281;&#12376;&#12427;">x</button>
         </div>
         <div class="form-grid">
+          <label>&#22865;&#32004;&#26399;<input name="fiscal_year_true" type="number" inputmode="numeric"></label>
           <label>&#27770;&#31639;&#26399;<input name="fiscal_year" type="number" inputmode="numeric"></label>
-          <label>&#22865;&#32004;&#26399;<input id="projectYearDisplay" type="text" readonly></label>
           <label>&#26989;&#21209;&#30058;&#21495;<input name="number" id="projectNumberInput" required></label>
-          <input name="fiscal_year_true" type="hidden">
           <label class="wide">&#26989;&#21209;&#21517;<input name="name" required></label>
           <label>&#20998;&#39006;<input name="field"></label>
           <label>&#35443;&#32048;&#20998;&#39006;<input name="subfield"></label>

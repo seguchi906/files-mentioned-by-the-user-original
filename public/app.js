@@ -1,6 +1,6 @@
 const labels = {
   loading: "\u8aad\u307f\u8fbc\u307f\u4e2d...",
-  contractTermAll: "\u5951\u7d04\u671f\u3059\u3079\u3066",
+  contractTermAll: "\u5168\u671f",
   fieldsAll: "\u5206\u985e\u3059\u3079\u3066",
   officesAll: "\u767a\u6ce8\u8005\u3059\u3079\u3066",
   count: "\u4ef6",
@@ -41,8 +41,6 @@ const formMessage = document.querySelector("#formMessage");
 const dialogTitle = document.querySelector("#dialogTitle");
 const deleteButton = document.querySelector("#deleteButton");
 const saveButton = document.querySelector("#saveButton");
-const projectYearDisplay = document.querySelector("#projectYearDisplay");
-const projectNumberInput = document.querySelector("#projectNumberInput");
 const filters = {
   search: document.querySelector("#searchInput"),
   fiscal_year_true: document.querySelector("#yearFilter"),
@@ -58,7 +56,6 @@ document.querySelector("#cancelButton").addEventListener("click", () => dialog.c
 document.querySelector("#csvInput").addEventListener("change", importCsv);
 form.addEventListener("submit", saveProject);
 deleteButton.addEventListener("click", deleteProject);
-projectNumberInput.addEventListener("input", updateProjectYearDisplay);
 
 for (const [key, element] of Object.entries(filters)) {
   element.addEventListener(key === "search" ? "input" : "change", debounce(() => {
@@ -153,14 +150,7 @@ function openEditor(project = null) {
     }
   }
 
-  updateProjectYearDisplay();
   dialog.showModal();
-}
-
-function updateProjectYearDisplay() {
-  const number = projectNumberInput.value.trim();
-  const match = number.match(/^[0-9]{2}/);
-  projectYearDisplay.value = match ? match[0] : "";
 }
 
 async function saveProject(event) {
