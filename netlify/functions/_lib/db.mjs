@@ -10,7 +10,7 @@ export const sql = neon(connectionString);
 
 export const projectColumns = `
   id,
-  substring(number from '^[0-9]{2}') as project_year,
+  substring(number from '^[0-9]{2}') as number_term,
   fiscal_year,
   fiscal_year_true,
   number,

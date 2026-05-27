@@ -18,7 +18,7 @@ async function listProjects(event) {
   const fiscalYear = params.fiscal_year_true || "";
   const field = params.field || "";
   const office = params.office || "";
-  const sort = ["number", "name", "project_year", "fiscal_year", "fiscal_year_true", "field", "office", "contract_amount", "start_date", "end_date", "revised_end_date"].includes(params.sort)
+  const sort = ["number", "name", "number_term", "fiscal_year", "fiscal_year_true", "field", "office", "contract_amount", "start_date", "end_date", "revised_end_date"].includes(params.sort)
     ? params.sort
     : "number";
   const direction = params.direction === "desc" ? sql`desc` : sql`asc`;

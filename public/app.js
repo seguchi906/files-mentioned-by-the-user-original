@@ -126,7 +126,7 @@ function renderRows() {
       <td class="number">${value(project.start_date)}</td>
       <td class="number">${value(project.end_date)}</td>
       <td class="number">${value(project.revised_end_date)}</td>
-      <td class="number">${value(project.project_year)}</td>
+      <td class="number">${value(project.fiscal_year_true)}</td>
       <td class="number">${value(project.fiscal_year)}</td>
       <td><button class="button secondary" type="button">${labels.edit}</button></td>
     `;
