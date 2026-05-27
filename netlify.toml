@@ -1,0 +1,27 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/projects"
+  to = "/.netlify/functions/projects"
+  status = 200
+
+[[redirects]]
+  from = "/api/projects/:id"
+  to = "/.netlify/functions/project-by-id?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/api/export.csv"
+  to = "/.netlify/functions/export-csv"
+  status = 200
+
+[[redirects]]
+  from = "/api/import"
+  to = "/.netlify/functions/import"
+  status = 200
